@@ -44,6 +44,40 @@
 ### 原型     
 原型制作规划 测试    
 ### API 产品使用关键AI或机器学习之API的输出入展示    
+[百度AI语音识别]([https://ai.baidu.com/tech/speech](https://ai.baidu.com/tech/speech)
+)：   
+
+输入：   
+```
+from aip import AipSpeech
+
+""" 你的 APPID AK SK """
+APP_ID = '18090119'
+API_KEY = 'YtE6uqVodwVwr9zCW0sPjqrH'
+SECRET_KEY = 'RGzlYQaeApOcXKmyjRfeKLEV02lKDlvn'
+
+client = AipSpeech(APP_ID, API_KEY, SECRET_KEY)
+
+# 读取文件
+def get_file_content(filePath):
+    with open(filePath, 'rb') as fp:
+        return fp.read()
+
+# 识别本地文件
+client.asr(get_file_content('16k.pcm'), 'pcm', 16000, {
+    'dev_pid': 1536,
+})
+```
+输出：
+```
+{'corpus_no': '6773611276171315400',
+ 'err_msg': 'success.',
+ 'err_no': 0,
+ 'result': ['北京科技馆'],
+ 'sn': '726787071901577104272'}
+```
+讯飞AI语音听写：   
+![讯飞语音听写](https://upload-images.jianshu.io/upload_images/11043770-9581753eb4f7bbe0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)   <br><br>
 
 ### 涉及API的价值主张    
 高德地图API，地标定位   
